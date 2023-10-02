@@ -1,0 +1,105 @@
+*{
+	margin: 0px ;
+	padding: 0px;
+}
+
+h2
+{
+    background: rgb(241, 83, 83);
+    width: 1300px;
+    height: 30px;
+}
+
+option
+{
+display: inline-block;
+}
+
+
+label, textarea {
+    display: inline-block;
+  }
+  
+  textarea {
+    margin: 15px 0;
+    width: 250px;
+    height: 100px
+  }
+
+body
+{
+text-align: center;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+margin:0;
+padding:0;
+color:#000;
+background:#fff;
+}
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+li.menu-item {
+    float: left;
+}
+
+li.menu-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* para os links quando o mouse passa por cima */
+li.menu-item a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.font-size-controls {
+    text-align: right;
+}
+
+.font-size-controls button {
+    font-size: 16px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/*para o conteúdo da página */
+.conteudo {
+    font-size: 16px;
+}
+
+/* para o aviso de cookies */
+.cookie-notice {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: none;
+}
+
+.cookie-notice a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* para o botão de aceitar cookies */
+#aceitar-cookies {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

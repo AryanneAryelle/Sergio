@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoológico</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Zoológico </h1> <br>
+ 
+ <!-- Aviso de cookies -->
+ <div id="cookie-notice" class="cookie-notice">
+    <p>Este site utiliza cookies para garantir que você obtenha a melhor experiência. <a href="/politica-de-privacidade">Saiba mais</a></p>
+    <br>
+    <button id="aceitar-cookies">Aceitar</button>
+</div>
+ 
+<script>
+function verificaCookiesAceitos() {
+    return localStorage.getItem('cookies-aceitos');
+}
+
+// Aqui é para exibir o aviso de cookies
+function exibirAvisoCookies() {
+    const cookieNotice = document.getElementById('cookie-notice');
+    cookieNotice.style.display = 'block';
+}
+
+// Aqui é para não exibir o aviso de cookies
+function ocultarAvisoCookies() {
+    const cookieNotice = document.getElementById('cookie-notice');
+    cookieNotice.style.display = 'none';
+    localStorage.setItem('cookies-aceitos', 'true');
+}
+
+// Aqui é para verificar se o usuário já aceitou os cookies
+if (!verificaCookiesAceitos()) {
+    exibirAvisoCookies();
+}
+
+// Aqui é o botão Aceitar Cookies
+const aceitarCookiesButton = document.getElementById('aceitar-cookies');
+aceitarCookiesButton.addEventListener('click', ocultarAvisoCookies);
+</script>
+
+<!-- Aqui é a logo da Univesp -->
+    <img src="https://upload.wikimedia.org/wikipedia/pt/6/6f/Logo_univesp.png" alt="img">
+
+    <!-- Botões de Aumentar ou Diminuir a Página -->
+        <div class="font-size-controls"> 
+         <button onclick="aumentarFonte()">Aumentar Fonte</button>
+            <button onclick="diminuirFonte()">Diminuir Fonte</button>
+        </div>
+
+    <div class="conteudo"><br>
+
+
+    <h2>SISTEMA CADASTRO DE ANIMAIS</h2><br>
+
+    <h3>CLASSIFICAÇÃO DO ANIMAL</h3><br>
+
+            <input type="checkbox" name="opcoes" value="M01"/> Mamíferos <br />
+            <input type="checkbox" name="opcoes" value="R01"/> Répteis <br />
+            <input type="checkbox" name="opcoes" value="A01"/> Aves <br />
+            <input type="checkbox" name="opcoes" value="ANF01"/> Anfibíos <br />
+            <input type="checkbox" name="opcoes" value="P01"/> Peixes <br />
+            <input type="checkbox" name="opcoes" value="I01"/> Insetos <br />
+                
+            <br><button>Nome Popular:</button>
+            <input type="text">
+            <br><button>Nome Científico:</button>
+            <input type="text">
+            <br><button>Cor:</button>
+            <input type="text">
+            <br><button>Altura:</button>
+            <input type="text"><br>
+
+            <h3>CADASTRO DE LOCALIZAÇÃO</h3><br>
+
+            <input type="checkbox" name="opcoes" value="Mamíferos"/>A1 SUL <br />
+            <input type="checkbox" name="opcoes" value="M01"/> A2 NORTE <br />
+            <input type="checkbox" name="opcoes" value="R01"/> A3 LESTE <br />
+            <input type="checkbox" name="opcoes" value="A01"/> A4 OESTE <br />
+            <input type="checkbox" name="opcoes" value="ANF01"/>A5 SUDESTE <br />
+            <input type="checkbox" name="opcoes" value="P01"/> A6 CENTRO OESTE <br />
+            <input type="checkbox" name="opcoes" value="I01"/> A7 NOROESTE <br />
+    
+            <br>
+
+                <h3>DESCRIÇÃO DO ANIMAL</h3>
+                        <label></label>
+                        <textarea>
+            
+                        </textarea>
+                    <br />
+
+                <h3> TIPO DO VIVEIRO</h3><br>
+            
+            <input type="checkbox" name="opcoes" value="Mamíferos"/>Poço <br />
+            <input type="checkbox" name="opcoes" value="Répteis"/> Jaula <br />
+            <input type="checkbox" name="opcoes" value="Aves"/> Viveiro <br />
+            <input type="checkbox" name="opcoes" value="Anfibíos"/>Tanque <br />
+            <input type="checkbox" name="opcoes" value="Peixes"/> Áquario <br />
+            <input type="checkbox" name="opcoes" value="Insetos"/> Savana<br />
+            <input type="checkbox" name="opcoes" value="Insetos"/> Santuários<br />
+            <input type="checkbox" name="opcoes" value="Insetos"/> Floresta<br />
+
+            <br>
+            
+            <input type="submit" value="Cadastrar" />
+            <input type="reset" value="Limpar" /> 
+        
+        </div>
+
+        <script> /* Aqui é para a acessibilidade de Tamanho da fonte */
+            let tamanhoFonte = 16; 
+    
+            function aumentarFonte() {
+                tamanhoFonte += 2;
+                document.querySelector('.conteudo').style.fontSize = tamanhoFonte + 'px';
+            }
+    
+            function diminuirFonte() {
+                tamanhoFonte -= 2;
+                document.querySelector('.conteudo').style.fontSize = tamanhoFonte + 'px';
+            }
+        </script>
+        <br>
+                    <ul class="menu">
+                        <li class="menu-item"><a href="#contraste">Contraste</a></li>
+                        <li class="menu-item"><a href="#leitor">Leitor Voz</a></li>
+                        <li class="menu-item"><a href="#controle">Controle por voz</a></li>
+                        <li class="menu-item"><a href="#zoom">Zoom</a></li>
+                        </ul>
+
+                        <!--Aqui é para a acessibilidade de Localização--> 
+                        <script>
+                            function mostrarLocalizacao(position) {
+                                const latitude = position.coords.latitude;
+                                const longitude = position.coords.longitude;
+                                const accuracy = position.coords.accuracy;
+                        
+                                const locationElement = document.getElementById('location');
+                                locationElement.innerHTML = `Latitude: ${latitude}<br>Longitude: ${longitude}<br>Acurácia: ${accuracy} metros`;
+                            }
+                        
+                            function erroLocalizacao(error) {
+                                const locationElement = document.getElementById('location');
+                                switch (error.code) {
+                                    case error.PERMISSION_DENIED:
+                                        locationElement.innerHTML = "Acesso à localização negado pelo usuário.";
+                                        break;
+                                    case error.POSITION_UNAVAILABLE:
+                                        locationElement.innerHTML = "Localização indisponível.";
+                                        break;
+                                    case error.TIMEOUT:
+                                        locationElement.innerHTML = "Tempo limite esgotado para obter a localização.";
+                                        break;
+                                    case error.UNKNOWN_ERROR:
+                                        locationElement.innerHTML = "Erro desconhecido ao obter a localização.";
+                                        break;
+                                }
+                            }
+                        
+                            if ("geolocation" in navigator) {
+                                navigator.geolocation.getCurrentPosition(mostrarLocalizacao, erroLocalizacao);
+                            } else {
+                                const locationElement = document.getElementById('location');
+                                locationElement.innerHTML = "A geolocalização não é suportada neste navegador.";
+                            }
+                        </script>
+
+</body>
+</html>
+
+
+        
+            <!-- PARA TESTAR MAIS A FRENTE
+            <select onchange="location.href=this.value">
+                <option value="#">Pesquisar</option>
+                <option value="">Mamíferos</option>
+                <option value="http:">Répteis</option>
+                <option value="http:">Aves</option>
+                <option value="http:">Insetos</option>
+                <option value="http:">Anfibíos</option>
+           </select>/*
+        -->
+
